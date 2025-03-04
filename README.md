@@ -1,6 +1,8 @@
 # isa2025-healthcalc
 Health calculator used in Ingeniería del Software Avanzada
 
+# Practica 1
+
 ## Casos de prueba 
 
 A continuación se enumerará una serie de prueba que se tendrá en cuenta , a la hora de realizar el proyecto.
@@ -30,3 +32,9 @@ A continuación se enumerará una serie de prueba que se tendrá en cuenta , a l
 -Test en la situación de introducir un peso muy elevado
 
 -Test en la situación de introducir una altura muy elevada
+
+
+# Practica 2
+
+## Imagen Diagrama Caso Uso Calculadora Salud
+![image](CalculadoraSaludUseCase.png)

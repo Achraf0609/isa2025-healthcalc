@@ -7,8 +7,6 @@ public class HealthCalcImpl implements HealthCalc {
     float weight;
     int age;
 
-
-
     @Override
     public float idealWeight(int height, char gender) throws Exception;
     @Override
