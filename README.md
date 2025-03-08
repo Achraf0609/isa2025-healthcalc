@@ -23,11 +23,15 @@ A continuación se enumerará una serie de prueba que se tendrá en cuenta , a l
 
 -Test en la situación de introducir una edad negativo
 
+-Test en la situación de introducir una edad igual a 0
+
 -Test en la situación de introducir un genero diferente a "m" o "w"
 
--Test en la situacion de introducir un peso igual a 0
+-Test en la situación de introducir un peso igual a 0
 
 -Test en la situación de introducir una altura igual a 0
+
+-Test en la situación de introducir una altura negativo
 
 -Test calcular correctamente el Basal Metabolic Rate para hombres
 
