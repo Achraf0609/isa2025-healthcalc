@@ -1,5 +1,6 @@
 package healthcalc;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -27,6 +28,26 @@ public class HealthCalcTest {
 		HealthCalcImpl calculadora= new HealthCalcImpl();
 		assertThrows(Exception.class, ()->calculadora.idealWeight(0, 'm'));
 	}
+
+	@Test
+	@DisplayName("Test calcular correctamen idealweight hombre")
+	public void CalcularIdealWeightHombre() throws Exception{
+		HealthCalcImpl calculadora= new HealthCalcImpl();
+		float esperado= (float) 57.5;
+		assertEquals(esperado, calculadora.idealWeight(160, 'm'));
+
+	}
+
+	@Test
+	@DisplayName("Test calcular correctamen idealweight mujer")
+	public void CalcularIdealWeightMujer() throws Exception{
+		HealthCalcImpl calculadora= new HealthCalcImpl();
+		float esperado= (float) 56;
+		assertEquals(esperado, calculadora.idealWeight(160, 'w'));
+
+	}
+
+
 
 	
 
