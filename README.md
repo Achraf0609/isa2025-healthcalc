@@ -40,3 +40,7 @@ A continuación se enumerará una serie de prueba que se tendrá en cuenta , a l
 # Resultados Al ejecutar los test
 
 ![image](doc/ResultadoTests.png)
+
+# Commits Realizados durante la Practica 1
+
+![image](doc/CommitsRealizados.png)
