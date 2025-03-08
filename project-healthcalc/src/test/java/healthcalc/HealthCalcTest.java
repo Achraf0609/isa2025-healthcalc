@@ -108,7 +108,7 @@ public class HealthCalcTest {
 	@DisplayName("Test calcular correctamente basalMetabolicRate mujer")
 	public void CalcularIdealWeightMujerBMR() throws Exception{
 		HealthCalcImpl calculadora= new HealthCalcImpl();
-		float esperado= (float) 1309.023;
+		float esperado= (float) 1334.5131;
 		assertEquals(esperado, calculadora.basalMetabolicRate(50, 165, 20, 'w'));
 
 	}
