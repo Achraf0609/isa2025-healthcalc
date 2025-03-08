@@ -27,6 +27,7 @@ public class HealthCalcTest {
 	public void lanzarExcepcionSiAlturaCeroIW() throws Exception{
 		HealthCalcImpl calculadora= new HealthCalcImpl();
 		assertThrows(Exception.class, ()->calculadora.idealWeight(0, 'm'));
+
 	}
 
 	@Test
