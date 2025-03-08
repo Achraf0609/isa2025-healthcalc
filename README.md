@@ -36,3 +36,7 @@ A continuación se enumerará una serie de prueba que se tendrá en cuenta , a l
 -Test calcular correctamente el Basal Metabolic Rate para hombres
 
 -Test calcular correctamente el Basal Metabolic Rate para mujeres
+
+# Resultados Al ejecutar los test
+
+![image](doc/ResultadoTests.png)
