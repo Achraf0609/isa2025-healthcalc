@@ -50,7 +50,6 @@ A continuación se enumerará una serie de prueba que se tendrá en cuenta , a l
 # Practica 2
 
 ## Imagen Diagrama Caso Uso Calculadora Salud
-<<<<<<< HEAD
 ![image](doc\CalculadoraSaludUseCase.png)
 
 ## Especificacion Caso Uso Peso Ideal
@@ -92,6 +91,3 @@ Escenarios Alternativos/Extensions:
     3a.1: El sistema muestra un mensaje de error indicando que los datos deben ser positivos.
 
     3a.2: Volver al paso 2.
-=======
-![image](doc/CalculadoraSaludUseCase.png)
->>>>>>> 9e568609ea69c95de819cd233519960c47ebbc6e
