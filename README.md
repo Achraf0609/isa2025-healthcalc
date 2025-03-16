@@ -12,7 +12,9 @@ A continuación se enumerará una serie de prueba que se tendrá en cuenta , a l
 
  -Test en la situación de introducir una altura en negativo
 
- -Test en la situación de introducir una altura muy grande
+ -Test calcular correctamente el idealWeight para hombres
+
+ -Test calcular correctamente el idealWeight para mujeres
 
  -Test en la situacion de introducir una altura igual a 0
 
@@ -23,16 +25,27 @@ A continuación se enumerará una serie de prueba que se tendrá en cuenta , a l
 
 -Test en la situación de introducir una edad negativo
 
+-Test en la situación de introducir una edad igual a 0
+
 -Test en la situación de introducir un genero diferente a "m" o "w"
 
--Test en la situacion de introducir un peso igual a 0
+-Test en la situación de introducir un peso igual a 0
 
 -Test en la situación de introducir una altura igual a 0
 
--Test en la situación de introducir un peso muy elevado
+-Test en la situación de introducir una altura negativo
 
--Test en la situación de introducir una altura muy elevada
+-Test calcular correctamente el Basal Metabolic Rate para hombres
 
+-Test calcular correctamente el Basal Metabolic Rate para mujeres
+
+## Resultados Al ejecutar los test
+
+![image](doc/ResultadoTests.png)
+
+## Commits Realizados durante la Practica 1
+
+![image](doc/CommitsRealizados.png)
 
 # Practica 2
 
