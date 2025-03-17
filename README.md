@@ -50,7 +50,7 @@ A continuación se enumerará una serie de prueba que se tendrá en cuenta , a l
 # Practica 2
 
 ## Imagen Diagrama Caso Uso Calculadora Salud
-![image](doc\CalculadoraSaludUseCase.png)
+![image](doc/CalculadoraSaludUseCase.png)
 
 ## Especificacion Caso Uso Peso Ideal
 CALCULAR PESO IDEAL (FULLY DRESSED VERSION)
