@@ -79,7 +79,7 @@ Trigger: El usuario decide calcular su Peso Ideal.
 
 Main success scenario:
 1. Usuario: Accede a la calculadora del Peso Ideal.
-2. Usuario: Introduce su peso,altura(kilogramo y centimetros) y género.
+2. Usuario: Introduce su altura(centimetros) y género.
 3. Sistema: Valida los datos ingresados.
 4. Sistema: Aplica la fórmula del Peso Ideal.
 5. Sistema: Muestra el resultado del Peso Ideal.
