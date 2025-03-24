@@ -18,6 +18,13 @@
 #Sample Feature Definition Template
 
 # tenemos que tener 2 feature, porque tenemos 2 historias de usuarios
+
+@tag
+Feature:  Health Calculator
+  As a user I want to compute my ideal weight so that to be aware about my health condition
+  @tag 1
+  Scenario: Computing the 
+
 @tag
 Feature: Factorial computation
   As a user I want to compute the factorial of a given number so that I can know the result

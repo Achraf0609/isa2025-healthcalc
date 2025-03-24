@@ -1,18 +1,40 @@
 
 
 Feature:Ideal Weight
-    As a user I want to compute my ideal weight so that to be aware about my health condition
-    Scenario: Altura negativa
-    Given: Tengo una calculadora de salud
-    And: Una altura negativa -5
-    And: Un genero masculino
-    When: Calculo el peso ideal
-    Then: Se lanza una excepcion de parametro invalido
+    Como usuario quiero calcular mi peso ideal para estar consciente de mi estado de salud.
+    Scenario Altura negativa
+    Given Tengo una calculadora de salud
+    And Una altura negativa -5 cm
+    And Un genero masculino
+    When Calculo el peso ideal
+    Then Se lanza una excepcion por parametro invalido
 
-    Scenario:Calculo el peso ideal 
-    Given: Tengo una calculadora de salud
-    And: Una altura <height>
-    And: Un genero <gender>
-    When: Calculo el peso ideal
-    Then: El sistema devuelve <value>
+    Scenario Altura cero
+    Given Tengo una calculadora de salud
+    And una altura de 0 cm
+    And un genero masculino
+    When Calculo el peso ideal
+    Then Se lanza una excepcion por parametro invalido
+
+    Scenario Genero Incorrecto
+    Given Tengo una calculadora de salud
+    And una altura de 160 cm
+    And un genero diferente a másculino o femenino
+    When Calculo el peso ideal
+    Then Se lanza una excepción por parametro invalido
+
+    Scenario:Calculo el peso ideal genero masculino
+    Given Tengo una calculadora de salud
+    And Una altura de 160 cm
+    And Un genero másculino
+    When Calculo el peso ideal
+    Then El sistema devuelve 57.5 kg
+
+    Scenario:Calculo el peso ideal genero femenino
+    Given Tengo una calculadora de salud
+    And Una altura de 160 cm
+    And Un genero femenino
+    When Calculo el peso ideal
+    Then El sistema devuelve 56 kg
+
 
