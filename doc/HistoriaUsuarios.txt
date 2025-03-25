@@ -37,4 +37,15 @@ Feature:Ideal Weight
     When Calculo el peso ideal
     Then El sistema devuelve 56 kg
 
+Feature:Basal Metabolic Weight    (float weight, int height, int age, char gender)
+    Como usuario quiero calcular mi peso metabólico basal para estar consciente de mi estado de salud.
+    Scenario Peso negativo
+    Given Tengo una calculadora de salud
+    And un peso de -10 kg
+    And una altura de 160 cm
+    And una edad de 20
+    And un genero masculino
+    When Calculo el peso metabólico basal
+    Then Se lanza una excepcion por parametro invalido
+
 
