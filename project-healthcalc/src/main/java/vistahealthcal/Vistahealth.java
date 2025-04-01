@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -16,16 +17,22 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.BoxLayout;
+import javax.swing.DefaultComboBoxModel;
 
 public class Vistahealth extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField tAltura;
 	private JTextField tResultadoPI;
 	private JTextField tPeso;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField tAltura2;
+	private JTextField tEdad;
+	private JTextField tResultadoTMB;
+	private JComboBox cGenero;
+	private JComboBox cGenero2;
+	private JButton bCalcularPI;
+	private JButton bCalcularTMB;
+
 
 	/**
 	 * Launch the application.
@@ -69,20 +76,21 @@ public class Vistahealth extends JFrame {
 		JLabel lblNewLabel_2 = new JLabel("Altura");
 		panelCentro.add(lblNewLabel_2);
 		
-		textField = new JTextField();
-		panelCentro.add(textField);
-		textField.setColumns(10);
+		tAltura = new JTextField();
+		panelCentro.add(tAltura);
+		tAltura.setColumns(10);
 		
-		JLabel lblNewLabel_3 = new JLabel("Calcular");
+		JLabel lblNewLabel_3 = new JLabel("Género");
 		panelCentro.add(lblNewLabel_3);
 		
-		JComboBox comboBox = new JComboBox();
-		panelCentro.add(comboBox);
+		cGenero = new JComboBox();
+		cGenero.setModel(new DefaultComboBoxModel(new String[] {"Masculino", "Femenino"}));
+		panelCentro.add(cGenero);
 		
 		JPanel panelSur = new JPanel();
 		panel_Oeste.add(panelSur, BorderLayout.SOUTH);
 		
-		JButton bCalcularPI = new JButton("Calcular (PI)");
+		bCalcularPI = new JButton("Calcular (PI)");
 		panelSur.add(bCalcularPI);
 		
 		JLabel lblNewLabel_4 = new JLabel("Resultado");
@@ -92,9 +100,12 @@ public class Vistahealth extends JFrame {
 		panelSur.add(tResultadoPI);
 		tResultadoPI.setColumns(10);
 		
+		// Parte del TMB
+		
 		JPanel panel_Este = new JPanel();
 		contentPane.add(panel_Este, BorderLayout.EAST);
 		panel_Este.setLayout(new BorderLayout(0, 0));
+		
 		
 		JLabel lblNewLabel_1 = new JLabel("TASA METABOLICA BASAL (TMB)");
 		panel_Este.add(lblNewLabel_1, BorderLayout.NORTH);
@@ -113,40 +124,94 @@ public class Vistahealth extends JFrame {
 		JLabel lblNewLabel_6 = new JLabel("Altura");
 		panelCentro2.add(lblNewLabel_6);
 		
-		textField_1 = new JTextField();
-		panelCentro2.add(textField_1);
-		textField_1.setColumns(10);
+		tAltura2 = new JTextField();
+		panelCentro2.add(tAltura2);
+		tAltura2.setColumns(10);
 		
 		JLabel lblNewLabel_7 = new JLabel("Edad");
 		panelCentro2.add(lblNewLabel_7);
 		
-		textField_2 = new JTextField();
-		panelCentro2.add(textField_2);
-		textField_2.setColumns(10);
+		tEdad = new JTextField();
+		panelCentro2.add(tEdad);
+		tEdad.setColumns(10);
 		
 		JLabel lblNewLabel_8 = new JLabel("Género");
 		panelCentro2.add(lblNewLabel_8);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		panelCentro2.add(comboBox_1);
+		cGenero2 = new JComboBox();
+		cGenero2.setModel(new DefaultComboBoxModel(new String[] {"Masculino", "Femenino"}));
+		panelCentro2.add(cGenero2);
 		
 		JPanel panelSur2 = new JPanel();
 		panel_Este.add(panelSur2, BorderLayout.SOUTH);
 		
-		JButton btnNewButton = new JButton("Calcular (TMB)");
-		panelSur2.add(btnNewButton);
+		bCalcularTMB = new JButton("Calcular (TMB)");
+		panelSur2.add(bCalcularTMB);
 		
 		JLabel lblNewLabel_9 = new JLabel("Resultado");
 		panelSur2.add(lblNewLabel_9);
 		
-		textField_3 = new JTextField();
-		panelSur2.add(textField_3);
-		textField_3.setColumns(10);
+		tResultadoTMB = new JTextField();
+		panelSur2.add(tResultadoTMB);
+		tResultadoTMB.setColumns(10);
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		this.pack();
 	}
+	
+	public int getAlturaPIValue() {
+		try {
+			return Integer.parseInt(tAltura.getText());	
+		} catch (NumberFormatException e) {
+			tResultadoPI.setText("Introduce una altura valida.");
+			return -1;
+		}
+	}
+	public int getPesoTMBValue() {
+		try {
+			return Integer.parseInt(tPeso.getText());	
+		} catch (NumberFormatException e) {
+			tResultadoTMB.setText("Introduce un peso valido.");
+			return -1;
+		}
+	}
+	public int getEdadTMB() {
+		try {
+			return Integer.parseInt(tEdad.getText());	
+		} catch (NumberFormatException e) {
+			tResultadoTMB.setText("Introduce una edad valida.");
+			return -1;
+		}
+	}
+	public int getAlturaTMB() {
+		try {
+			return Integer.parseInt(tAltura2.getText());	
+		} catch (NumberFormatException e) {
+			tResultadoTMB.setText("Introduce una altura valida.");
+			return -1;
+		}
+	}
+	
+	public String getGeneroPIValue() {
+		return cGenero.getName();
+	}
+	public String getGeneroTMBValue() {
+		return cGenero2.getName();
+		
+	}
+	
+	public void setResultadoPI(int resPi) {
+		tResultadoPI.setText("Tu peso ideal es"+resPi);
+	}
+	public void setResultadoTMB(int resIMB) {
+		tResultadoTMB.setText("Tu tasa metabolcia basal es"+resIMB);
+	}
+	public void registrarControlador(ActionListener ctrl) {
+		bCalcularPI.addActionListener(ctrl);
+		bCalcularPI.setActionCommand("Calcular_PI");
+	}
+	
 
 }
