@@ -1,5 +1,6 @@
 # isa2025-healthcalc
 Health calculator used in Ingeniería del Software Avanzada
+# Practica 1
 
 ## Casos de prueba 
 
@@ -44,3 +45,13 @@ A continuación se enumerará una serie de prueba que se tendrá en cuenta , a l
 # Commits Realizados durante la Practica 1
 
 ![image](doc/CommitsRealizados.png)
+
+# Practica 4
+
+## Prototipo Calculadora
+
+![image](doc/PrototipoCalculadora.png)
+
+## Interfaz Calculadora
+
+![image](doc/InterfazCalculadora.png)
