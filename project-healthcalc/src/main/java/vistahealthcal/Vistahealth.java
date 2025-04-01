@@ -34,25 +34,6 @@ public class Vistahealth extends JFrame {
 	private JButton bCalcularTMB;
 
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Vistahealth frame = new Vistahealth();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public Vistahealth() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -73,7 +54,7 @@ public class Vistahealth extends JFrame {
 		panel_Oeste.add(panelCentro, BorderLayout.CENTER);
 		panelCentro.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JLabel lblNewLabel_2 = new JLabel("Altura");
+		JLabel lblNewLabel_2 = new JLabel("Altura (cm)");
 		panelCentro.add(lblNewLabel_2);
 		
 		tAltura = new JTextField();
@@ -93,10 +74,11 @@ public class Vistahealth extends JFrame {
 		bCalcularPI = new JButton("Calcular (PI)");
 		panelSur.add(bCalcularPI);
 		
-		JLabel lblNewLabel_4 = new JLabel("Resultado");
-		panelSur.add(lblNewLabel_4);
+		JLabel lblResultadoPI = new JLabel("Resultado");
+		panelSur.add(lblResultadoPI);
 		
 		tResultadoPI = new JTextField();
+		tResultadoPI.setEditable(false);
 		panelSur.add(tResultadoPI);
 		tResultadoPI.setColumns(10);
 		
@@ -114,14 +96,14 @@ public class Vistahealth extends JFrame {
 		panel_Este.add(panelCentro2, BorderLayout.CENTER);
 		panelCentro2.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JLabel lblNewLabel_5 = new JLabel("Peso");
+		JLabel lblNewLabel_5 = new JLabel("Peso (kg)");
 		panelCentro2.add(lblNewLabel_5);
 		
 		tPeso = new JTextField();
 		panelCentro2.add(tPeso);
 		tPeso.setColumns(10);
 		
-		JLabel lblNewLabel_6 = new JLabel("Altura");
+		JLabel lblNewLabel_6 = new JLabel("Altura (cm)");
 		panelCentro2.add(lblNewLabel_6);
 		
 		tAltura2 = new JTextField();
@@ -152,6 +134,7 @@ public class Vistahealth extends JFrame {
 		panelSur2.add(lblNewLabel_9);
 		
 		tResultadoTMB = new JTextField();
+		tResultadoTMB.setEditable(false);
 		panelSur2.add(tResultadoTMB);
 		tResultadoTMB.setColumns(10);
 		
@@ -169,9 +152,9 @@ public class Vistahealth extends JFrame {
 			return -1;
 		}
 	}
-	public int getPesoTMBValue() {
+	public float getPesoTMBValue() {
 		try {
-			return Integer.parseInt(tPeso.getText());	
+			return Float.parseFloat(tPeso.getText());
 		} catch (NumberFormatException e) {
 			tResultadoTMB.setText("Introduce un peso valido.");
 			return -1;
@@ -195,23 +178,30 @@ public class Vistahealth extends JFrame {
 	}
 	
 	public String getGeneroPIValue() {
-		return cGenero.getName();
+		return cGenero.getSelectedItem().toString();
 	}
 	public String getGeneroTMBValue() {
-		return cGenero2.getName();
+		return cGenero2.getSelectedItem().toString();
 		
-	}
-	
-	public void setResultadoPI(int resPi) {
-		tResultadoPI.setText("Tu peso ideal es"+resPi);
-	}
-	public void setResultadoTMB(int resIMB) {
-		tResultadoTMB.setText("Tu tasa metabolcia basal es"+resIMB);
 	}
 	public void registrarControlador(ActionListener ctrl) {
 		bCalcularPI.addActionListener(ctrl);
 		bCalcularPI.setActionCommand("Calcular_PI");
+		bCalcularTMB.addActionListener(ctrl);
+		bCalcularTMB.setActionCommand("Calcular_TMB");
 	}
 	
+	public void setResultadoPI(float resPi) {
+		tResultadoPI.setText(""+resPi);
+	}
+	public void setResultadoTMB(float resIMB) {
+		tResultadoTMB.setText(""+resIMB);
+	}
+	public void errorPI(String msg) {
+		tResultadoPI.setText(msg);
+	}
+	public void errorTMB(String msg) {
+		tResultadoTMB.setText(msg);
+	}
 
 }

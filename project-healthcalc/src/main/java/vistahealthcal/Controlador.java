@@ -19,16 +19,38 @@ public class Controlador implements ActionListener {
 		
 		String comando = e.getActionCommand();
 		if (comando.equals("Calcular_PI")) {
+			
 			// Calcular PI
 			int altura = vista.getAlturaPIValue();
-			String genero= vista.getGeneroPIValue();
-			/*try {
-				int resultado = modelo.compute(n);	
-				vista.setResutado(resultado);
-			} catch (NegativeValueException error) {
-				vista.error("Introduce un número positivo.");
-			}*/
+			char genero='x';
+			if(vista.getGeneroPIValue().equals("Masculino")) {
+				genero='m';
+			}else {
+				genero='w';
+			}
+			try {
+				float resultado = modelo.idealWeight(altura, genero);
+				vista.setResultadoPI(resultado);
+			} catch (Exception error) {
+				vista.errorPI("Introduce un número positivo.");
+			}
 			
+		}if(comando.equals("Calcular_TMB")) {
+			int altura= vista.getAlturaTMB();
+			float peso=vista.getPesoTMBValue();
+			int edad= vista.getEdadTMB();
+			char genero='a';
+			if(vista.getGeneroTMBValue().equals("Masculino")) {
+				genero='m';
+			}else {
+				genero='w';
+			}
+			try {
+				float resultado= modelo.basalMetabolicRate(peso, altura, edad, genero);
+				vista.setResultadoTMB(resultado);
+			}catch(Exception error){
+				vista.errorTMB("Introduce un número positivo");				
+			}
 		}
 		// TODO Auto-generated method stub
 		
