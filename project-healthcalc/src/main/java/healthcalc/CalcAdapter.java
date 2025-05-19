@@ -19,7 +19,7 @@ public class CalcAdapter implements HealthHospital {
     }
     @Override
     public int pesoIdeal(char genero, float altura) throws Exception {
-        int alturaint= (int) altura;
+        int alturaint= (int) (altura*100);
         float resultado=calculadora.idealWeight(alturaint, genero);
         return (int) resultado;
     }
