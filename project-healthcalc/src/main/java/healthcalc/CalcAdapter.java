@@ -11,8 +11,8 @@ public class CalcAdapter implements HealthHospital {
 
     @Override
     public double bmr(char genero, int edad, float altura, int peso) throws Exception {
-        int alturaint= (int) altura;
-        float pesoFloat= (float) peso;
+        int alturaint= (int) (altura*100);
+        float pesoFloat= (float) (peso/1000f);
         float resultado=calculadora.basalMetabolicRate(pesoFloat, alturaint, edad, genero);
         return resultado;
  
