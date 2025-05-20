@@ -26,7 +26,15 @@ public class Main {
         }
 
         System.out.println("Altura media: " + p.alturaMedia()+" m");
-        System.err.println("Peso medio: " + p.pesoMedio()+" g");
+        System.err.println("Peso medio: " + p.pesoMedio()+" kg");
+
+
+        // Probar el decorador 
+
+        HealthHospital calculadoraUsa_EN= new Ingles(new USA(ac));
+        HealthHospital calculadoraEU_ES= new Espanol(new EU(ac));
+        calculadoraUsa_EN.bmr('m', 20, 1.8f, 70000);
+        calculadoraEU_ES.bmr('m', 20, 1.8f, 70000);
 
 
 

@@ -64,7 +64,7 @@ public class HealthProxy implements HealthHospital,HealthStats {
         for (int i=0;i<pesos.size();i++){
             suma+=pesos.get(i);
         }
-        return suma/pesos.size();
+        return (suma/pesos.size())/1000;
     }
 
     @Override

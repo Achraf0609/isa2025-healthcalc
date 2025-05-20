@@ -8,7 +8,7 @@ public class USA extends RegionDecorator {
     @Override
     public double bmr(char genero, int edad, float altura, int peso) throws Exception {
         float alturaMetros= altura*0.3048f;
-        int pesoKg= (int) (peso*0.453592f);
+        int pesoKg= (int) (peso*453.592f);
         double resultado= wrappee.bmr(genero, edad, alturaMetros, pesoKg);
         return resultado;
     }
