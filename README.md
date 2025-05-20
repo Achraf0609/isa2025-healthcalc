@@ -55,3 +55,33 @@ A continuación se enumerará una serie de prueba que se tendrá en cuenta , a l
 ## Interfaz Calculadora
 
 ![image](doc/InterfazCalculadora.png)
+
+
+# Practica 6: Patrones de diseño
+
+Para el primer apartado se ha utilizado el patrón Singular.
+
+### Patrón Singular
+
+![image](design_patterns/Patron_Singular.png)
+
+Para el segundo apartado se ha utilizado el patrón Adapter.
+
+### Patrón Adapter
+
+![image](design_patterns/Patron_Adapter.png)
+
+Para el tercer apartado se ha utilizado el patrón Proxy.
+
+### Patrón Proxy
+
+![image](design_patterns/Patron_Proxy.png)
+
+Para el último apartado se ha utilizado el patrón Decorator.
+
+### Patrón Decorator
+
+![image](design_patterns/Patron_Decorator.png)
+
+
+

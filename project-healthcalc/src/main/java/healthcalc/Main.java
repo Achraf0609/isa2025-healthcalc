@@ -6,6 +6,8 @@ public class Main {
         HealthHospital ac= new CalcAdapter(c);
         HealthProxy p= new HealthProxy(ac);
 
+        // Probar el adapter
+
         try {
             double bmr = ac.bmr('m', 20, 1.8f, 70000);
             int pesoIdeal = ac.pesoIdeal('m', 1.8f);
