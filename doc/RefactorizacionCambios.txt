@@ -1,0 +1,6 @@
+1. Bad smell: Primitive Obsession
+2. Refactoring aplicado: Reemplazo de primitivas por enumetion 
+3. Tipo: Attribute refactoring
+4. Descripción: He creado un enum Gender para representar el género en vez de usar un char, y he actualizado todos los métodos y clases que usaban el char para que ahora utilicen Gender.
+5. Cambios manuales: 1 enum creado, 2 métodos adaptados
+
