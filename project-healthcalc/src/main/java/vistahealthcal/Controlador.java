@@ -3,15 +3,21 @@ package vistahealthcal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import healthcalc.HealthCalcImpl;
+import healthcalc.CardiovascularMetrics;
+import healthcalc.Gender;
+import healthcalc.MetabolicMetrics;
+import healthcalc.Persona;
 
 public class Controlador implements ActionListener {
 	
-	private HealthCalcImpl modelo;
+	//private HealthCalcImpl modelo;
+	private MetabolicMetrics metabolicmodelo;
+	private CardiovascularMetrics cardiovascularmodelo;
 	private Vistahealth vista;
 	
-	public Controlador(HealthCalcImpl modelo,Vistahealth vista){
-		this.modelo=modelo;
+	public Controlador(MetabolicMetrics metabolicmodelo,CardiovascularMetrics cardiovascularmodelo,Vistahealth vista){
+		this.cardiovascularmodelo=cardiovascularmodelo;
+		this.metabolicmodelo=metabolicmodelo;
 		this.vista=vista;
 	}
 	@Override
@@ -21,16 +27,17 @@ public class Controlador implements ActionListener {
 		if (comando.equals("Calcular_PI")) {
 			
 			// Calcular PI
-			int altura = vista.getAlturaPIValue();
-			char genero='x';
+			float altura = vista.getAlturaPIValue();
+			Gender genero=Gender.MALE;
 			if(vista.getGeneroPIValue().equals("Masculino")) {
-				genero='m';
+				genero=Gender.MALE;
 			}else {
-				genero='w';
+				genero=Gender.FEMALE;
 			}
+			Persona persona = new Persona(0,altura,0, genero);
 			try {
-				float resultado = modelo.idealWeight(altura, genero);
-				vista.setResultadoPI(resultado);
+				double resultado = cardiovascularmodelo.getIdealBodyWeight(persona);
+				vista.setResultadoPI((float)resultado);
 			} catch (Exception error) {
 				vista.errorPI("Introduce un número positivo.");
 			}
@@ -39,15 +46,16 @@ public class Controlador implements ActionListener {
 			int altura= vista.getAlturaTMB();
 			float peso=vista.getPesoTMBValue();
 			int edad= vista.getEdadTMB();
-			char genero='a';
+			Gender genero=Gender.MALE;
 			if(vista.getGeneroTMBValue().equals("Masculino")) {
-				genero='m';
+				genero=Gender.MALE;
 			}else {
-				genero='w';
+				genero=Gender.FEMALE;
 			}
+			Persona persona = new Persona(peso,altura,edad,genero);
 			try {
-				float resultado= modelo.basalMetabolicRate(peso, altura, edad, genero);
-				vista.setResultadoTMB(resultado);
+				double resultado= metabolicmodelo.basalMetabolicRate(persona);
+				vista.setResultadoTMB((float)resultado);
 			}catch(Exception error){
 				vista.errorTMB("Introduce un número positivo");				
 			}

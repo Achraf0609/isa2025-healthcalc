@@ -2,7 +2,8 @@ package vistahealthcal;
 
 import java.awt.EventQueue;
 
-import healthcalc.HealthCalcImpl;
+import healthcalc.CardiovascularMetrics;
+import healthcalc.MetabolicMetrics;
 
 public class Main {
 
@@ -10,9 +11,10 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					HealthCalcImpl modelo = HealthCalcImpl.getInstancia();
+					CardiovascularMetrics cardiovascularmodelo = new CardiovascularMetrics();
+					MetabolicMetrics metabolicmodelo = new MetabolicMetrics();
 					Vistahealth vista = new Vistahealth();
-					Controlador controlador = new Controlador(modelo, vista);
+					Controlador controlador = new Controlador(metabolicmodelo,cardiovascularmodelo, vista);
 					vista.registrarControlador(controlador);
 					vista.setVisible(true);
 				} catch (Exception e) {

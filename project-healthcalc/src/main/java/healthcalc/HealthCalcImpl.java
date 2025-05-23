@@ -1,6 +1,6 @@
 package healthcalc;
 
-public class HealthCalcImpl implements HealthCalc {
+public class HealthCalcImpl implements HealthCalc{
 
     private static HealthCalcImpl instancia;
 
