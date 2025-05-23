@@ -11,6 +11,7 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					
 					CardiovascularMetrics cardiovascularmodelo = new CardiovascularMetrics();
 					MetabolicMetrics metabolicmodelo = new MetabolicMetrics();
 					Vistahealth vista = new Vistahealth();

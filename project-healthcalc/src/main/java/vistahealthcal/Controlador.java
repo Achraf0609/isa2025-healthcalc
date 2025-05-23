@@ -16,6 +16,7 @@ public class Controlador implements ActionListener {
 	private Vistahealth vista;
 	
 	public Controlador(MetabolicMetrics metabolicmodelo,CardiovascularMetrics cardiovascularmodelo,Vistahealth vista){
+		
 		this.cardiovascularmodelo=cardiovascularmodelo;
 		this.metabolicmodelo=metabolicmodelo;
 		this.vista=vista;
