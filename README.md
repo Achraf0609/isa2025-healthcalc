@@ -56,7 +56,7 @@ A continuación se enumerará una serie de prueba que se tendrá en cuenta , a l
 
 ![image](doc/InterfazCalculadora.png)
 
-# Practica 7
+# Practica 7: Refactorings
 
 ## Refactoring 1: Cambiar tipo de gender de char a Gender
 1. Bad smell: Primitive Obsession
