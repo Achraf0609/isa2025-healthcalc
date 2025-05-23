@@ -11,6 +11,7 @@ public class HealthCalcTest {
 	@Test
 	@DisplayName("Test Lanzar exception si altura negativo en idealweight")
 	public void lanzarExcepcionSiAlturaNegativoIW() throws Exception{
+		
 		Persona persona= new Persona(70, -160, 20, Gender.MALE);
 		CardiovascularMetrics cardio= new CardiovascularMetrics();
 		assertThrows(Exception.class,()->cardio.getIdealBodyWeight(persona));
