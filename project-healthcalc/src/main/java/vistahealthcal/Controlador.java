@@ -5,20 +5,21 @@ import java.awt.event.ActionListener;
 
 import healthcalc.CardiovascularMetrics;
 import healthcalc.Gender;
+import healthcalc.HealthCalcImpl;
 import healthcalc.MetabolicMetrics;
 import healthcalc.Persona;
 
 public class Controlador implements ActionListener {
 	
-	//private HealthCalcImpl modelo;
+	private HealthCalcImpl modelo;
 	private MetabolicMetrics metabolicmodelo;
 	private CardiovascularMetrics cardiovascularmodelo;
 	private Vistahealth vista;
 	
-	public Controlador(MetabolicMetrics metabolicmodelo,CardiovascularMetrics cardiovascularmodelo,Vistahealth vista){
-		
+	public Controlador(HealthCalcImpl modelo,MetabolicMetrics metabolicmodelo,CardiovascularMetrics cardiovascularmodelo,Vistahealth vista){
 		this.cardiovascularmodelo=cardiovascularmodelo;
 		this.metabolicmodelo=metabolicmodelo;
+		this.modelo=modelo;
 		this.vista=vista;
 	}
 	@Override
@@ -37,7 +38,7 @@ public class Controlador implements ActionListener {
 			}
 			Persona persona = new Persona(0,altura,0, genero);
 			try {
-				double resultado = cardiovascularmodelo.getIdealBodyWeight(persona);
+				float resultado = modelo.idealWeight(cardiovascularmodelo, persona);
 				vista.setResultadoPI((float)resultado);
 			} catch (Exception error) {
 				vista.errorPI("Introduce un número positivo.");
@@ -55,7 +56,7 @@ public class Controlador implements ActionListener {
 			}
 			Persona persona = new Persona(peso,altura,edad,genero);
 			try {
-				double resultado= metabolicmodelo.basalMetabolicRate(persona);
+				double resultado= modelo.basalMetabolicRate(metabolicmodelo, persona);
 				vista.setResultadoTMB((float)resultado);
 			}catch(Exception error){
 				vista.errorTMB("Introduce un número positivo");				

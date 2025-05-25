@@ -14,7 +14,8 @@ public class HealthCalcTest {
 		
 		Persona persona= new Persona(70, -160, 20, Gender.MALE);
 		CardiovascularMetrics cardio= new CardiovascularMetrics();
-		assertThrows(Exception.class,()->cardio.getIdealBodyWeight(persona));
+		HealthCalcImpl calculadora= HealthCalcImpl.getInstancia();
+		assertThrows(Exception.class,()->calculadora.idealWeight(cardio, persona));
 	}
 
 	@Test
@@ -22,7 +23,8 @@ public class HealthCalcTest {
 	public void lanzarExcepcionSiAlturaCeroIW() throws Exception{
 		Persona persona= new Persona(70, 0, 20, Gender.MALE);
 		CardiovascularMetrics cardio= new CardiovascularMetrics();
-		assertThrows(Exception.class, ()->cardio.getIdealBodyWeight(persona));
+		HealthCalcImpl calculadora= HealthCalcImpl.getInstancia();
+		assertThrows(Exception.class, ()->calculadora.idealWeight(cardio, persona));
 
 	}
 
@@ -31,8 +33,9 @@ public class HealthCalcTest {
 	public void CalcularIdealWeightHombreIW() throws Exception{
 		Persona persona= new Persona(70, 160, 20, Gender.MALE);
 		CardiovascularMetrics cardio= new CardiovascularMetrics();
+		HealthCalcImpl calculadora= HealthCalcImpl.getInstancia();
 		float esperado= (float) 57.5;
-		assertEquals(esperado, cardio.getIdealBodyWeight(persona));
+		assertEquals(esperado, calculadora.idealWeight(cardio, persona));
 
 	}
 
@@ -41,8 +44,9 @@ public class HealthCalcTest {
 	public void CalcularIdealWeightMujerIW() throws Exception{
 		Persona persona= new Persona(70, 160, 20, Gender.FEMALE);
 		CardiovascularMetrics cardio= new CardiovascularMetrics();
+		HealthCalcImpl calculadora= HealthCalcImpl.getInstancia();
 		float esperado= (float) 56;
-		assertEquals(esperado, cardio.getIdealBodyWeight(persona));
+		assertEquals(esperado, calculadora.idealWeight(cardio, persona));
 
 	}
 
@@ -52,7 +56,8 @@ public class HealthCalcTest {
 	public void lanzarExcepcionSiAlturaNegativoBMR() throws Exception{
 		Persona persona= new Persona(70, -160, 20, Gender.MALE);
 		MetabolicMetrics metabolic= new MetabolicMetrics();
-		assertThrows(Exception.class,()->metabolic.basalMetabolicRate(persona));
+		HealthCalcImpl calculadora= HealthCalcImpl.getInstancia();
+		assertThrows(Exception.class,()->calculadora.basalMetabolicRate(metabolic, persona));
 	}
 
 	@Test
@@ -60,7 +65,8 @@ public class HealthCalcTest {
 	public void lanzarExcepcionSiAlturaCeroBMR() throws Exception{
 		Persona persona= new Persona(70, 0, 20, Gender.MALE);
 		MetabolicMetrics metabolic= new MetabolicMetrics();
-		assertThrows(Exception.class, ()->metabolic.basalMetabolicRate(persona));
+		HealthCalcImpl calculadora= HealthCalcImpl.getInstancia();
+		assertThrows(Exception.class, ()->calculadora.basalMetabolicRate(metabolic, persona));
 	}
 
 	@Test
@@ -68,28 +74,32 @@ public class HealthCalcTest {
 	public void lanzarExcepcionSiEdadCeroBMR() throws Exception{
 		Persona persona= new Persona(70, 160, 0, Gender.MALE);
 		MetabolicMetrics metabolic= new MetabolicMetrics();
-		assertThrows(Exception.class, ()->metabolic.basalMetabolicRate(persona));
+		HealthCalcImpl calculadora= HealthCalcImpl.getInstancia();
+		assertThrows(Exception.class, ()->calculadora.basalMetabolicRate(metabolic, persona));
 	}
 	@Test
 	@DisplayName("Test Lanzar Exception si edad es negativo en basalMetabolicRate")
 	public void lanzarExcepcionSiEdadNegativoBMR() throws Exception{
 		Persona persona= new Persona(70, 160, -20, Gender.MALE);
 		MetabolicMetrics metabolic= new MetabolicMetrics();
-		assertThrows(Exception.class, ()->metabolic.basalMetabolicRate(persona));
+		HealthCalcImpl calculadora= HealthCalcImpl.getInstancia();
+		assertThrows(Exception.class, ()->calculadora.basalMetabolicRate(metabolic, persona));
 	}
 	@Test
 	@DisplayName("Test Lanzar Exception si peso igual cero en basalMetabolicRate")
 	public void lanzarExcepcionSiPesoCeroBMR() throws Exception{
 		Persona persona= new Persona(0, 160, 20, Gender.MALE);
 		MetabolicMetrics metabolic= new MetabolicMetrics();
-		assertThrows(Exception.class, ()->metabolic.basalMetabolicRate(persona));
+		HealthCalcImpl calculadora= HealthCalcImpl.getInstancia();
+		assertThrows(Exception.class, ()->calculadora.basalMetabolicRate(metabolic, persona));
 	}
 	@Test
 	@DisplayName("Test Lanzar Exception si peso es negativo en basalMetabolicRate")
 	public void lanzarExcepcionSiPesoNegativoBMR() throws Exception{
 		Persona persona= new Persona(70, -160, 20, Gender.MALE);
 		MetabolicMetrics metabolic= new MetabolicMetrics();
-		assertThrows(Exception.class, ()->metabolic.basalMetabolicRate(persona));
+		HealthCalcImpl calculadora= HealthCalcImpl.getInstancia();
+		assertThrows(Exception.class, ()->calculadora.basalMetabolicRate(metabolic, persona));
 	}
 
 
@@ -99,7 +109,8 @@ public class HealthCalcTest {
 		Persona persona= new Persona(70, 180, 20, Gender.MALE);
 		MetabolicMetrics metabolic= new MetabolicMetrics();
 		float esperado= (float) 1776.432;
-		assertEquals(esperado, metabolic.basalMetabolicRate(persona));
+		HealthCalcImpl calculadora= HealthCalcImpl.getInstancia();
+		assertEquals(esperado, calculadora.basalMetabolicRate(metabolic, persona));
 
 	}
 
@@ -109,7 +120,8 @@ public class HealthCalcTest {
 		Persona persona= new Persona(50, 165, 20, Gender.FEMALE);
 		MetabolicMetrics metabolic= new MetabolicMetrics();
 		float esperado= (float) 1334.5131;
-		assertEquals(esperado, metabolic.basalMetabolicRate(persona));
+		HealthCalcImpl calculadora= HealthCalcImpl.getInstancia();
+		assertEquals(esperado, calculadora.basalMetabolicRate(metabolic, persona));
 
 	}
 
